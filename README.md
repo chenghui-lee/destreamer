@@ -2,13 +2,7 @@
   <img src="https://github.com/snobu/destreamer/workflows/Node%20CI/badge.svg" alt="CI build status" />
 </a>
 
-## From the destreamer team,
-![](https://cdn.dribbble.com/users/534714/screenshots/5747869/happy_holidays_anim_800x600_v02.gif)<br>
-(Graphics by https://dribbble.com/alejandrocreates)
-
-**destreamer v3.0** is just around the corner. Download speed improvement is astonishing and we have a never before seen photo from the design sessions:<br><br>
-
-You can try out a pre-release today by cloning [this branch](https://github.com/snobu/destreamer/tree/aria2c_forRealNow).
+**destreamer v3.0** is just around the corner. You can try out a pre-release today by cloning [this branch](https://github.com/snobu/destreamer/tree/aria2c_forRealNow).
 
 ![destreamer](assets/logo.png)
 
@@ -44,7 +38,7 @@ Hopefully this doesn't break the end user agreement for Microsoft Stream. Since 
 
 ## Prereqs
 
-- [**Node.js**][node]: You'll need Node.js version 8.0 or higher. A GitHub Action runs tests on all major Node versions on every commit. One caveat for Node 8, if you get a `Parse Error` with `code: HPE_HEADER_OVERFLOW` you're out of luck and you'll need to upgrade to Node 10+.
+- [**Node.js**][node]: You'll need Node.js version 8.0 or higher. A GitHub Action runs tests on all major Node versions on every commit. One caveat for Node 8, if you get a `Parse Error` with `code: HPE_HEADER_OVERFLOW` you're out of luck and you'll need to upgrade to Node 10+. PLEASE NOTE WE NO LONGER TEST BUILDS AGAINST NODE 8.x. YOU ARE ON YOUR OWN.
 - **npm**: usually comes with Node.js, type `npm` in your terminal to check for its presence
 - [**ffmpeg**][ffmpeg]: a recent version (year 2019 or above), in `$PATH` or in the same directory as this README file (project root).
 - [**git**][git]: one or more npm dependencies require git.
@@ -82,8 +76,13 @@ Now, change `executablePath` to reflect the path to your browser and profile (i.
 ```typescript
         executablePath: 'C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe',
 ```
+In Linux for Chromium,
+```typescript
+        executablePath: '/usr/bin/chromium-browser',
+```
+Depending on your distro, it may also be `/usr/bin/chromium`. You will have to change it appropriately for Google Chrome.
 
-Note that for Mac/Linux the path will look a little different but no other changes are necessary.
+Note that for Mac the path may look a little different but no other changes are necessary.
 
 You need to rebuild (`npm run build`) every time you change this configuration.
 
